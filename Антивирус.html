@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🛡️ Антивирус системы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+            line-height: 1.5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 20px 15px;
+            border: 1px solid #0f0;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #f00;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px #f00;
+        }
+        
+        #output {
+            min-height: 40vh;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px dashed #0f0;
+            background: rgba(0, 255, 0, 0.05);
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            background: #f00;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1.1rem;
+            margin: 15px auto 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Антивирус системы</h1>
+        <div id="output">> Готов к запуску...</div>
+        <button onclick="startHack()">Запуск антивируса</button>
+    </div>
+
+    <script>
+        function startHack() {
+            const output = document.getElementById("output");
+            output.innerHTML = "";
+            
+            const messages = [
+                "> Инициализация модулей...",
+                "> Поиск уязвимостей...",
+                "> Загрузка серверов...",
+                "> Загрузка данных...",
+                "> Проверка продолжается...",
+                "> Скачивание данных...",
+                "> Очистка следов...",
+                "> Эмм...",
+                "> кажется антивирус сошёл с ума",
+                "> Успешно наебали вас 😂",
+                "> Ваш IP: " + generateIP(),
+                "> Всегда пожалуйста!",
+                "> Ивентер грей 😉"
+            ];
+            
+            let i = 0;
+            function showMessage() {
+                if (i < messages.length) {
+                    output.innerHTML += messages[i] + "<br>";
+                    output.scrollTop = output.scrollHeight;
+                    i++;
+                    setTimeout(showMessage, 1000);
+                }
+            }
+            
+            showMessage();
+        }
+        
+        function generateIP() {
+            return [192, 168, 
+                   Math.floor(Math.random() * 255), 
+                   Math.floor(Math.random() * 255)].join('.');
+        }
+    </script>
+</body>
+</html>
